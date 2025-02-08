@@ -20,10 +20,10 @@ efm = function(envirfile=NULL) {
  options(guiToolkit="tcltk")
 
  #version:
- version = utils::packageVersion("euroformix") #follows same version as package number
+ version = utils::packageVersion("euroformixHap") #follows same version as package number
 
  #software name:
- softname <- paste0("EuroForMix v",version)
+ softname <- paste0("EuroForMixHap",version)
  
  #Strider link (can be customized in toolbar)
  striderlink = "https://strider.online/frequencies/xml"
@@ -53,7 +53,7 @@ efm = function(envirfile=NULL) {
  #####################
  #create environment #
  #####################
-  pgkPath <- path.package("euroformix", quiet = FALSE) # Get package path.
+  pgkPath <- path.package("euroformixHap", quiet = FALSE) # Get package path.
   .sep <- .Platform$file.sep # Platform dependent path separator. 
   deffreq <- paste(pgkPath,"FreqDatabases",sep=.sep) #default path to freq-files
 
