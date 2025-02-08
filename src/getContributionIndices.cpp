@@ -24,13 +24,6 @@ uvec getContributionIndices(int genotypeCombinationIndex, int numberOfContributo
 		for(int aind=0; aind<2; aind++) {			
 		  alleleIndex1 = alleleIndices(aind);
 		  contributionIndices[alleleIndex1] += contributorPower[contributorIndex];
-		  if(hasNumStutterModels1 && (alleleIndex1 != alleleIndexOfDropouts0) ) {
-			if(hasNumStutterModels2) { // Performance trick: compiler combines >=1 and >1 into a single comparison
-			  contributionIndices[ FWto[alleleIndex1] ] += 6 * contributorPower[contributorIndex];
-			}
-			contributionIndices[ BWto[alleleIndex1] ] +=  3 * contributorPower[contributorIndex];
-		  }
-		}
 		if (hasNumStutterModels1 && alleleIndices(0)==alleleIndices(1)) { // Need to make a small correction for homozygotes...
 		  if (alleleIndex1 != alleleIndexOfDropouts0) {
   			contributionIndices[ BWto[alleleIndex1] ] -= contributorPower[contributorIndex];
