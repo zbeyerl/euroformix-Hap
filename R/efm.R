@@ -5,7 +5,7 @@
 #' @param envirfile A Rdata file including a saved environment of a project  (variable must be named mmTK)
 #' @export
 
-#library(euroformix);envirfile=NULL#;efm()
+#library(EuroForMixHap);envirfile=NULL#;efm()
 efm = function(envirfile=NULL) {
  LUSsymbol = "_" #Added in version 1.11.0 defined as constant. Used for showing MPS based STRs in RU_LUS format (LUS must be numeric)
  MPSsymbol = ":" #Added in version 2.2.0 defined as constant. Used for showing MPS based SNPs/STRs in RU:something format (both can be strings)
