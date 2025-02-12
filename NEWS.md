@@ -16,6 +16,33 @@ Future version:
 - Faster Non-contributor tests by optimizing the calcMLE function (update genoWeights, skip preSearch, modelValid and DCcalc)
 
 
+EuroForMix v4.2.3 (Release date: 2025-02-07)
+=============================================
+ - Improved how LR is presented when the model under Hp or/and Hd is not fitting the data.
+   - Always showing two decimal points for log10LR.
+   - In calcMLE-L321: Set logLik=-Inf if logLik reached .Machine$double.xmax.
+   - Modifying .getSmallNumber to include special situations (LR=1, LR=0 and LR=NaN).
+   
+ - Fixing crash in calcMLE if all start values gave logLik=-Inf values (happens if model does not fit the data):
+   - calcMLE-L163: Adding "if(length(maxL)==0) maxL = -Inf"
+   - calcMLE-L172: Adding !is.na(valdiff) 
+   - calcMLE-L182: Use seq_len(nrow(bestPreSearchParams))
+    
+EuroForMix v4.2.2 (Release date: 2025-02-06)
+=============================================
+ - Fixing crash in calcMLE when stutter-proportion was very close to zero and required a impute
+   - Caused by wrong maxPhi impute when it was infinite (need to separate on Mx and stutter prop for the impute).
+
+ - Fixing bugs in contLikSearch function:
+   - Component of POI was not correct when extracting the Mx (could cause wrong Mx values).
+   - At L56 where knownNonContrHp was set as NULL even if not supposed to. 
+	 - This caused differences against ordinary calculations when including references that are not conditioned on.
+   - Allowing the model search to go up to 6 contributors.
+   - resttol is now also included as argument to function.
+
+ - Fixing an issue in efm when having triAlleles of a reference:
+	- The reference was deactivated in the data selection window (this is now fixed by allowing at least 2 alleles: efm:L1738).
+
 EuroForMix v4.2.1 (Release date: 2025-01-24)
 =============================================
  - Fixing an issue when the model is not converging and throws an error for the model validation .
