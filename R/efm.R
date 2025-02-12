@@ -5,7 +5,7 @@
 #' @param envirfile A Rdata file including a saved environment of a project  (variable must be named mmTK)
 #' @export
 
-#library(EuroForMixHap);envirfile=NULL#;efm()
+#library(euroformix);envirfile=NULL#;efm()
 efm = function(envirfile=NULL) {
  LUSsymbol = "_" #Added in version 1.11.0 defined as constant. Used for showing MPS based STRs in RU_LUS format (LUS must be numeric)
  MPSsymbol = ":" #Added in version 2.2.0 defined as constant. Used for showing MPS based SNPs/STRs in RU:something format (both can be strings)
@@ -20,7 +20,7 @@ efm = function(envirfile=NULL) {
  options(guiToolkit="tcltk")
 
  #version:
- version = utils::packageVersion("euroformixHap") #follows same version as package number
+ version = utils::packageVersion("euroformix") #follows same version as package number
 
  #software name:
  softname <- paste0("EuroForMixHap",version)
@@ -53,7 +53,7 @@ efm = function(envirfile=NULL) {
  #####################
  #create environment #
  #####################
-  pgkPath <- path.package("euroformixHap", quiet = FALSE) # Get package path.
+  pgkPath <- path.package("euroformix", quiet = FALSE) # Get package path.
   .sep <- .Platform$file.sep # Platform dependent path separator. 
   deffreq <- paste(pgkPath,"FreqDatabases",sep=.sep) #default path to freq-files
 
